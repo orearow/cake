@@ -1,15 +1,21 @@
 package com.example.cake;
 
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import java.util.ArrayList;
+
+import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                opencolorpicker();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         });
 
@@ -59,6 +66,33 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+
+
+    public void opencolorpicker(){
+        final ColorPicker colorPicker = new ColorPicker(this);
+        ArrayList<String> colors = new ArrayList<>();
+        colors.add("#6a3ab2");
+        colors.add("#258174");
+
+        colorPicker.setColors(colors)
+                .setColumns(5)
+                .setRoundColorButton(true)
+                .setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
+                    @Override
+                    public void onChooseColor(int position, int color) {
+                        ConstraintLayout layout = (ConstraintLayout)findViewById(R.id.layout);
+                        layout.setBackgroundColor(color);
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+                }).show();
+
     }
 
     @Override
