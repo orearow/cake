@@ -110,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
         colors.add("#6a3ab2");
         colors.add("#258174");
         colors.add("#aaf5aa");
-
+        colors.add("#cc3ab2");
+        colors.add("#cc8174");
+        colors.add("#ccf5aa");
         colorPicker.setColors(colors)
                 .setColumns(5)
                 .setRoundColorButton(true)
