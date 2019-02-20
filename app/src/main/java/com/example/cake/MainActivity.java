@@ -1,5 +1,6 @@
 package com.example.cake;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -22,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
     int cakelayercount = 0;
     int sprinklesbtncount = 0;
     int frostingbtncount=0;
+    int bluefrostingbtncount=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +68,66 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // brings the images to the front
+        ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
+        bluefrostingcaketier2.bringToFront();
 
+        final ImageButton bluefrostingcake = (ImageButton) findViewById(R.id.bluefrostingcake);
+        bluefrostingcake.bringToFront();
+
+        final ImageButton rainbowfrosting = (ImageButton) findViewById(R.id.rainbowfrostingcake);
+        rainbowfrosting.bringToFront();
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        ImageButton colorfrosting = (ImageButton) findViewById(R.id.coloredfrosting);
+        colorfrosting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (bluefrostingbtncount >= 1) {
+                    ImageButton rainbowfrosting = (ImageButton) findViewById(R.id.rainbowfrostingcake);
+                    rainbowfrosting.setVisibility(View.VISIBLE);
+                    bluefrostingcake.setVisibility(View.INVISIBLE);
+                } else {
+                    ImageButton rainbowfrosting = (ImageButton) findViewById(R.id.rainbowfrostingcake);
+                    rainbowfrosting.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
+        ////////////////////////////////////////////////////////////////////////////////////////////////
+        // adds blue frosting onto the cake
+        final ImageButton bluefrostingbtn = (ImageButton) findViewById(R.id.bluefrosting);
+        bluefrostingbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (bluefrostingbtncount == 0 && cakelayercount >= 0) {
+                    ImageButton bluefrostingcake = (ImageButton) findViewById(R.id.bluefrostingcake);
+                    bluefrostingcake.setVisibility(View.VISIBLE);
+                    bluefrostingbtncount++;
+                }
+
+                else if (bluefrostingbtncount > 0 && cakelayercount > 0 )
+                {
+                    ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
+                    bluefrostingcaketier2.setVisibility(View.VISIBLE);
+                    bluefrostingbtncount--;
+                }
+
+                else
+                {
+                    ImageButton bluefrostingcake = (ImageButton) findViewById(R.id.bluefrostingcake);
+                    bluefrostingcake.setVisibility(View.INVISIBLE);
+                }
+            }
+
+        });
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+        // displays all types of frosting when clicked
         ImageButton frostingbtn = (ImageButton) findViewById(R.id.frostingbutton);
         frostingbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+////////// sprinkles appear with button click //////////////////////////////////////////////////////
         ImageButton sprinklesbtn = (ImageButton) findViewById(R.id.sprinklesbutton);
         sprinklesbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+/////////////////////////////build cake with button clicks ////////////////////////////////////////
                 ImageButton button = (ImageButton) findViewById(R.id.cakebutton);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
