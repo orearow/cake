@@ -31,13 +31,46 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                opencolorpicker();
+               // opencolorpicker();
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }
         });
 
-        ImageButton button= (ImageButton) findViewById(R.id.cakebutton);
+
+        final ImageButton roundcake = (ImageButton) findViewById(R.id.roundcake);
+        roundcake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  roundcake);
+
+            }
+        });
+
+
+        final ImageButton roundcake1 = (ImageButton) findViewById(R.id.roundcake1);
+        roundcake1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  roundcake1);
+
+            }
+        });
+
+        final ImageButton roundcake2 = (ImageButton) findViewById(R.id.roundcake2);
+        roundcake2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  roundcake2);
+
+            }
+        });
+
+
+
+
+
+                ImageButton button = (ImageButton) findViewById(R.id.cakebutton);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(cakelayercount ==0){
@@ -70,11 +103,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void opencolorpicker(){
+    public void opencolorpicker(ImageButton image){
+         final  ImageButton imagetochange = image;
         final ColorPicker colorPicker = new ColorPicker(this);
         ArrayList<String> colors = new ArrayList<>();
         colors.add("#6a3ab2");
         colors.add("#258174");
+        colors.add("#aaf5aa");
 
         colorPicker.setColors(colors)
                 .setColumns(5)
@@ -82,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 .setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
                     @Override
                     public void onChooseColor(int position, int color) {
-                        ConstraintLayout layout = (ConstraintLayout)findViewById(R.id.layout);
-                        layout.setBackgroundColor(color);
+                        imagetochange.setColorFilter(color);
 
                     }
 
