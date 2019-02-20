@@ -20,6 +20,8 @@ import petrov.kristiyan.colorpicker.ColorPicker;
 public class MainActivity extends AppCompatActivity {
 
     int cakelayercount = 0;
+    int sprinklesbtncount = 0;
+    int frostingbtncount=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +68,69 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ImageButton frostingbtn = (ImageButton) findViewById(R.id.frostingbutton);
+        frostingbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(frostingbtncount==0) {
+                    ImageButton coloredfrosting = (ImageButton) findViewById(R.id.coloredfrosting);
+                    ImageButton yellowfrosting = (ImageButton) findViewById(R.id.yellowfrosting);
+                    ImageButton bluefrosting = (ImageButton) findViewById(R.id.bluefrosting);
+                    coloredfrosting.setVisibility(View.VISIBLE);
+                    yellowfrosting.setVisibility(View.VISIBLE);
+                    bluefrosting.setVisibility(View.VISIBLE);
+                    frostingbtncount++;
 
+                }
+
+                else {
+                    ImageButton coloredfrosting = (ImageButton) findViewById(R.id.coloredfrosting);
+                    ImageButton yellowfrosting = (ImageButton) findViewById(R.id.yellowfrosting);
+                    ImageButton bluefrosting = (ImageButton) findViewById(R.id.bluefrosting);
+                    coloredfrosting.setVisibility(View.INVISIBLE);
+                    yellowfrosting.setVisibility(View.INVISIBLE);
+                    bluefrosting.setVisibility(View.INVISIBLE);
+                    frostingbtncount--;
+                }
+
+            }
+        });
+
+
+        ImageButton sprinklesbtn = (ImageButton) findViewById(R.id.sprinklesbutton);
+        sprinklesbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(sprinklesbtncount==0) {
+                    ImageButton greensprinkles = (ImageButton) findViewById(R.id.greensprinkles);
+                    ImageButton redsprinkles = (ImageButton) findViewById(R.id.redsprinkles);
+                    ImageButton heartsprinkles = (ImageButton) findViewById(R.id.heartsprinkles);
+                    ImageButton roundsprinkles = (ImageButton) findViewById(R.id.roundsprinkles);
+                    ImageButton blacksprinkles = (ImageButton) findViewById(R.id.blacksprinkles);
+                    greensprinkles.setVisibility(View.VISIBLE);
+                    redsprinkles.setVisibility(View.VISIBLE);
+                    heartsprinkles.setVisibility(View.VISIBLE);
+                    roundsprinkles.setVisibility(View.VISIBLE);
+                    blacksprinkles.setVisibility(View.VISIBLE);
+                    sprinklesbtncount++;
+                }
+
+                else{
+                    ImageButton greensprinkles = (ImageButton) findViewById(R.id.greensprinkles);
+                    ImageButton redsprinkles = (ImageButton) findViewById(R.id.redsprinkles);
+                    ImageButton heartsprinkles = (ImageButton) findViewById(R.id.heartsprinkles);
+                    ImageButton roundsprinkles = (ImageButton) findViewById(R.id.roundsprinkles);
+                    ImageButton blacksprinkles = (ImageButton) findViewById(R.id.blacksprinkles);
+                    greensprinkles.setVisibility(View.INVISIBLE);
+                    redsprinkles.setVisibility(View.INVISIBLE);
+                    heartsprinkles.setVisibility(View.INVISIBLE);
+                    roundsprinkles.setVisibility(View.INVISIBLE);
+                    blacksprinkles.setVisibility(View.INVISIBLE);
+                    sprinklesbtncount--;
+
+                }
+            }
+        });
 
 
 
