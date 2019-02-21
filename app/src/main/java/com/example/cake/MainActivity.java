@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     int sprinklesbtncount = 0;
     int frostingbtncount=0;
     int bluefrostingbtncount=0;
+    int rainbowfrostingbtncount=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,52 +80,99 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageButton rainbowfrosting = (ImageButton) findViewById(R.id.rainbowfrostingcake);
         rainbowfrosting.bringToFront();
+
+        final ImageButton rainbowfrostingtier2 = (ImageButton) findViewById(R.id.rainbowfrostingcaketier2);
+        rainbowfrostingtier2.bringToFront();
+
+        final ImageButton yellowfrosting = (ImageButton) findViewById(R.id.yellowfrostingcake);
+        yellowfrosting.bringToFront();
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
         ImageButton colorfrosting = (ImageButton) findViewById(R.id.coloredfrosting);
-        colorfrosting.setOnClickListener(new View.OnClickListener() {
+        colorfrosting.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (bluefrostingbtncount >= 1) {
-                    ImageButton rainbowfrosting = (ImageButton) findViewById(R.id.rainbowfrostingcake);
-                    rainbowfrosting.setVisibility(View.VISIBLE);
-                    bluefrostingcake.setVisibility(View.INVISIBLE);
-                } else {
-                    ImageButton rainbowfrosting = (ImageButton) findViewById(R.id.rainbowfrostingcake);
-                    rainbowfrosting.setVisibility(View.VISIBLE);
 
-                }
+                    ImageButton bluefrostingcake = (ImageButton) findViewById(R.id.bluefrostingcake);
+                    ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
+                    ImageButton rainbowfrostingcake = (ImageButton) findViewById(R.id.rainbowfrostingcake);
+                    ImageButton rainbowfrostingcaketier2 = (ImageButton) findViewById(R.id.rainbowfrostingcaketier2);
+
+                ImageButton yellowfrostingcake = (ImageButton) findViewById(R.id.yellowfrostingcake);
+
+                    rainbowfrostingcake.setVisibility(View.VISIBLE);
+                    rainbowfrostingcaketier2.setVisibility(View.VISIBLE);
+                    bluefrostingcake.setVisibility(View.INVISIBLE);
+                    bluefrostingcaketier2.setVisibility(View.INVISIBLE);
+                    yellowfrostingcake.setVisibility(View.INVISIBLE);
+
+
+
+
+
             }
-        });
+        }));
+
         ////////////////////////////////////////////////////////////////////////////////////////////////
         // adds blue frosting onto the cake
-        final ImageButton bluefrostingbtn = (ImageButton) findViewById(R.id.bluefrosting);
-        bluefrostingbtn.setOnClickListener(new View.OnClickListener() {
+
+        ImageButton bluefrostingbtn = (ImageButton) findViewById(R.id.bluefrosting);
+        bluefrostingbtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (bluefrostingbtncount == 0 && cakelayercount >= 0) {
+               // if (bluefrostingbtncount == 0)
+              //  {
                     ImageButton bluefrostingcake = (ImageButton) findViewById(R.id.bluefrostingcake);
-                    bluefrostingcake.setVisibility(View.VISIBLE);
-                    bluefrostingbtncount++;
-                }
-
-                else if (bluefrostingbtncount > 0 && cakelayercount > 0 )
-                {
                     ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
+                ImageButton rainbowfrostingcake = (ImageButton) findViewById(R.id.rainbowfrostingcake);
+                ImageButton rainbowfrostingcaketier2 = (ImageButton) findViewById(R.id.rainbowfrostingcaketier2);
+                ImageButton yellowfrostingcake = (ImageButton) findViewById(R.id.yellowfrostingcake);
+
+                    bluefrostingcake.setVisibility(View.VISIBLE);
                     bluefrostingcaketier2.setVisibility(View.VISIBLE);
-                    bluefrostingbtncount--;
-                }
+                rainbowfrostingcake.setVisibility(View.INVISIBLE);
+                rainbowfrostingcaketier2.setVisibility(View.INVISIBLE);
+                yellowfrostingcake.setVisibility(View.INVISIBLE);
 
-                else
-                {
-                    ImageButton bluefrostingcake = (ImageButton) findViewById(R.id.bluefrostingcake);
-                    bluefrostingcake.setVisibility(View.INVISIBLE);
-                }
+
+
+
+
+
             }
+        }));
 
-        });
+        ////////////////////////////adds yellow frosting on cake/////////////
+        ImageButton yellowfrostingbtn = (ImageButton) findViewById(R.id.yellowfrosting);
+        yellowfrostingbtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if (bluefrostingbtncount == 0)
+                //  {
+                ImageButton yellowfrostingcake = (ImageButton) findViewById(R.id.yellowfrostingcake);
+                ImageButton bluefrostingcake = (ImageButton) findViewById(R.id.bluefrostingcake);
+                ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
+                ImageButton rainbowfrostingcake = (ImageButton) findViewById(R.id.rainbowfrostingcake);
+                ImageButton rainbowfrostingcaketier2 = (ImageButton) findViewById(R.id.rainbowfrostingcaketier2);
+
+                yellowfrostingcake.setVisibility(View.VISIBLE);
+                bluefrostingcake.setVisibility(View.INVISIBLE);
+                bluefrostingcaketier2.setVisibility(View.INVISIBLE);
+                rainbowfrostingcake.setVisibility(View.INVISIBLE);
+                rainbowfrostingcaketier2.setVisibility(View.INVISIBLE);
+
+
+
+
+
+
+            }
+        }));
+
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
