@@ -121,6 +121,11 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton coloredsprinkles = (ImageButton) findViewById(R.id.sprinklescake);
         coloredsprinkles.bringToFront();
 
+        final ImageButton heartsprinkles = (ImageButton) findViewById(R.id.heartsprinklescake);
+        heartsprinkles.bringToFront();
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -199,18 +204,25 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
             }
         }));
 
+        // puts sprinkles on cake
         ImageButton coloredsprinklesbtn = (ImageButton) findViewById(R.id.roundsprinkles);
         coloredsprinklesbtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ImageButton coloredsprinkles = (ImageButton) findViewById(R.id.sprinklescake);
                 coloredsprinkles.setVisibility(View.VISIBLE);
+            }
+        }));
+
+        ImageButton heartsprinklesbtn = (ImageButton) findViewById(R.id.heartsprinkles);
+        heartsprinklesbtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageButton heartsprinklescake = (ImageButton) findViewById(R.id.heartsprinklescake);
+                heartsprinklescake.setVisibility(View.VISIBLE);
             }
         }));
 
