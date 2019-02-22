@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // brings the images to the front
-        ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
+        final ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
         bluefrostingcaketier2.bringToFront();
 
         final ImageButton bluefrostingcake = (ImageButton) findViewById(R.id.bluefrostingcake);
@@ -375,6 +375,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /////////////////////////reset button////////////////////////////
+        ImageButton resetbtn = (ImageButton) findViewById(R.id.reset);
+        resetbtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                roundcake.setVisibility(View.INVISIBLE);
+                roundcake1.setVisibility(View.INVISIBLE);
+                roundcake2.setVisibility(View.INVISIBLE);
+                squarecake.setVisibility(View.INVISIBLE);
+                squarecake2.setVisibility(View.INVISIBLE);
+                squarecake1.setVisibility(View.INVISIBLE);
+                heartcake.setVisibility(View.INVISIBLE);
+                heartcake1.setVisibility(View.INVISIBLE);
+                heartcake2.setVisibility(View.INVISIBLE);
+                heartsprinkles.setVisibility(View.INVISIBLE);
+                coloredsprinkles.setVisibility(View.INVISIBLE);
+                bluefrostingcake.setVisibility(View.INVISIBLE);
+                bluefrostingcaketier2.setVisibility(View.INVISIBLE);
+                rainbowfrosting.setVisibility(View.INVISIBLE);
+                rainbowfrostingtier2.setVisibility(View.INVISIBLE);
+                yellowfrosting.setVisibility(View.INVISIBLE);
+
+                cakelayercount = 0;
+            }
+        });
+
         ////////////////////// displays candle options with button click ///////////////////////////
 
         ImageButton candlebtn = (ImageButton) findViewById(R.id.candlebutton);
@@ -455,6 +480,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
 /////////////////////////////build cake with button clicks ////////////////////////////////////////
         ImageButton button = (ImageButton) findViewById(R.id.cakebutton);
         ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
@@ -465,6 +493,8 @@ public class MainActivity extends AppCompatActivity {
                 if(cakelayercount ==0){
                 ImageButton roundcake = (ImageButton) findViewById(R.id.roundcake);
                 roundcake.setVisibility(View.VISIBLE);
+
+
                 }
                 if(cakelayercount ==1){
                     ImageButton roundcake1 = (ImageButton) findViewById(R.id.roundcake1);
