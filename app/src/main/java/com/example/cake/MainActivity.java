@@ -1,5 +1,6 @@
 package com.example.cake;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -282,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
         }));
 
 ////////////////////// correct, wrong images ///////////////////////////////////////////////////////
-        Button submitbtn = (Button) findViewById(R.id.submit);
+        ImageButton submitbtn = (ImageButton) findViewById(R.id.submit);
         submitbtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -292,6 +293,7 @@ public class MainActivity extends AppCompatActivity {
                     final ImageButton check = (ImageButton) findViewById(R.id.check);
                     check.setVisibility(View.VISIBLE);
                     check.animate().alpha(0f).setDuration(5000);
+                    moveTaskToBack(true);
                 }
 
                 else{
