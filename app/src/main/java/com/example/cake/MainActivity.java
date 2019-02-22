@@ -64,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final ImageButton heartcake = (ImageButton) findViewById(R.id.heartcake);
+        heartcake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  heartcake);
+
+            }
+        });
+
 
         final ImageButton roundcake1 = (ImageButton) findViewById(R.id.roundcake1);
         roundcake1.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +92,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final ImageButton heartcake1 = (ImageButton) findViewById(R.id.heartlayer1);
+        heartcake1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  heartcake1);
+
+            }
+        });
+
         final ImageButton roundcake2 = (ImageButton) findViewById(R.id.roundcake2);
         roundcake2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +115,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 opencolorpicker(  squarecake2);
+
+            }
+        });
+
+
+        final ImageButton heartcake2 = (ImageButton) findViewById(R.id.heartcake2);
+        heartcake2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  heartcake2);
 
             }
         });
@@ -290,6 +318,7 @@ public class MainActivity extends AppCompatActivity {
 /////////////////////////////build cake with button clicks ////////////////////////////////////////
         ImageButton button = (ImageButton) findViewById(R.id.cakebutton);
         ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
+        ImageButton heartcakebutton = (ImageButton) findViewById(R.id.heartbutton);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -328,24 +357,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        heartcakebutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(cakelayercount ==0){
+                    ImageButton heartcake = (ImageButton) findViewById(R.id.heartcake);
+                    heartcake.setVisibility(View.VISIBLE);
+                }
+                if(cakelayercount ==1){
+                    ImageButton heartcake1 = (ImageButton) findViewById(R.id.heartlayer1);
+                    heartcake1.setVisibility(View.VISIBLE);
+                }
+                if(cakelayercount ==2){
+                    ImageButton heartcake2 = (ImageButton) findViewById(R.id.heartcake2);
+                    heartcake2.setVisibility(View.VISIBLE);
+                }
+                cakelayercount = cakelayercount + 1 ;
+            }
+        });
+
 
 
         button.setOnLongClickListener(new View.OnLongClickListener() {
 
             ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
+            ImageButton heartcakebutton = (ImageButton) findViewById(R.id.heartbutton);
+
             TextView roundcakelabel = (TextView) findViewById(R.id.roundcakelabel);
             TextView squarecakeLabel = (TextView) findViewById(R.id.squarecakelabel);
+            TextView heartcakelabel = (TextView) findViewById(R.id.heartlabel);
 
 
             public boolean onLongClick(View v) {
                 squarecakebutton.setVisibility(View.VISIBLE);
+                heartcakebutton.setVisibility(View.VISIBLE);
+
                 squarecakeLabel.setVisibility(View.VISIBLE);
                 roundcakelabel.setVisibility(View.VISIBLE);
+                heartcakelabel.setVisibility(View.VISIBLE);
 
                 final Animation animShake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
                 squarecakebutton.startAnimation(animShake);
                 squarecakeLabel.startAnimation(animShake);
                 roundcakelabel.startAnimation(animShake);
+                heartcakelabel.startAnimation(animShake);
+                heartcakebutton.startAnimation(animShake);
+
                 return true;
 
             }
