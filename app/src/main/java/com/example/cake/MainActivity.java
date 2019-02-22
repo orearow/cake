@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     int frostingbtncount=0;
     int bluefrostingbtncount=0;
     int rainbowfrostingbtncount=0;
+    int candlebtncount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,6 +160,15 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton wrong = (ImageButton) findViewById(R.id.wrong);
         wrong.bringToFront();
 
+        final ImageButton bluecandle = (ImageButton) findViewById(R.id.bluecandle);
+        bluecandle.bringToFront();
+
+        final ImageButton purplecandle = (ImageButton) findViewById(R.id.purplecandle);
+        purplecandle.bringToFront();
+
+        final ImageButton pinkcandle = (ImageButton) findViewById(R.id.pinkcandle);
+        pinkcandle.bringToFront();
+
 
 
 //////////////////rainbow frosting//////////////////////////////////////////////////////////////////////////////////////
@@ -214,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
                 ImageButton rainbowfrostingcaketier2 = (ImageButton) findViewById(R.id.rainbowfrostingcaketier2);
                 ImageButton yellowfrostingcake = (ImageButton) findViewById(R.id.yellowfrostingcake);
 
-                    bluefrostingcake.setVisibility(View.VISIBLE);
+                 bluefrostingcake.setVisibility(View.VISIBLE);
                     bluefrostingcaketier2.setVisibility(View.VISIBLE);
                 rainbowfrostingcake.setVisibility(View.INVISIBLE);
                 rainbowfrostingcaketier2.setVisibility(View.INVISIBLE);
@@ -362,6 +372,85 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        ////////////////////// displays candle options with button click ///////////////////////////
+
+        ImageButton candlebtn = (ImageButton) findViewById(R.id.candlebutton);
+        candlebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(candlebtncount==0) {
+                    ImageButton pinkcandleoption = (ImageButton) findViewById(R.id.pinkcandleoption);
+                    ImageButton bluecandleoption = (ImageButton) findViewById(R.id.bluecandleoption);
+                    ImageButton purplecandleoption = (ImageButton) findViewById(R.id.purplecandleoption);
+
+                   pinkcandleoption.setVisibility(View.VISIBLE);
+                   bluecandleoption.setVisibility(View.VISIBLE);
+                   purplecandleoption.setVisibility(View.VISIBLE);
+                    candlebtncount++;
+                }
+
+                else{
+
+                    ImageButton pinkcandleoption = (ImageButton) findViewById(R.id.pinkcandleoption);
+                    ImageButton bluecandleoption = (ImageButton) findViewById(R.id.bluecandleoption);
+                    ImageButton purplecandleoption = (ImageButton) findViewById(R.id.purplecandleoption);
+
+                    pinkcandleoption.setVisibility(View.INVISIBLE);
+                    bluecandleoption.setVisibility(View.INVISIBLE);
+                    purplecandleoption.setVisibility(View.INVISIBLE);
+
+                    candlebtncount--;
+
+                }
+            }
+        });
+
+        /////////////////////put correct candle on cake /////////////////////////////////////////////
+
+        ImageButton pinkcandleoption = (ImageButton) findViewById(R.id.pinkcandleoption);
+        ImageButton bluecandleoption = (ImageButton) findViewById(R.id.bluecandleoption);
+        ImageButton purplecandleoption = (ImageButton) findViewById(R.id.purplecandleoption);
+
+        pinkcandleoption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pinkcandle.setVisibility(View.VISIBLE);
+                if(purplecandle.getVisibility()==View.VISIBLE || bluecandle.getVisibility()==View.VISIBLE) {
+
+                    bluecandle.setVisibility(View.INVISIBLE);
+                    purplecandle.setVisibility(View.INVISIBLE);
+                }
+
+            }
+        });
+
+        bluecandleoption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bluecandle.setVisibility(View.VISIBLE);
+
+                if(pinkcandle.getVisibility()==View.VISIBLE || purplecandle.getVisibility()==View.VISIBLE) {
+
+                    purplecandle.setVisibility(View.INVISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        purplecandleoption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                purplecandle.setVisibility(View.VISIBLE);
+                if(pinkcandle.getVisibility()==View.VISIBLE || bluecandle.getVisibility()==View.VISIBLE) {
+
+
+                    bluecandle.setVisibility(View.INVISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
 
 
 /////////////////////////////build cake with button clicks ////////////////////////////////////////
