@@ -11,8 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -51,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        final ImageButton squarecake = (ImageButton) findViewById(R.id.squarecake);
+        squarecake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  squarecake);
+
+            }
+        });
 
 
         final ImageButton roundcake1 = (ImageButton) findViewById(R.id.roundcake1);
@@ -58,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 opencolorpicker(  roundcake1);
+
+            }
+        });
+
+        final ImageButton squarecake1 = (ImageButton) findViewById(R.id.squarecake1);
+        squarecake1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  squarecake1);
 
             }
         });
@@ -70,6 +91,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        final ImageButton squarecake2 = (ImageButton) findViewById(R.id.squarecake2);
+        squarecake2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencolorpicker(  squarecake2);
+
+            }
+        });
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // brings the images to the front
         ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
@@ -257,7 +288,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 /////////////////////////////build cake with button clicks ////////////////////////////////////////
-                ImageButton button = (ImageButton) findViewById(R.id.cakebutton);
+        ImageButton button = (ImageButton) findViewById(R.id.cakebutton);
+        ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(cakelayercount ==0){
@@ -272,10 +305,52 @@ public class MainActivity extends AppCompatActivity {
                     ImageButton roundcake2 = (ImageButton) findViewById(R.id.roundcake2);
                     roundcake2.setVisibility(View.VISIBLE);
                 }
-
                 cakelayercount = cakelayercount + 1 ;
             }
         });
+
+
+        squarecakebutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(cakelayercount ==0){
+                    ImageButton squarecake = (ImageButton) findViewById(R.id.squarecake);
+                    squarecake.setVisibility(View.VISIBLE);
+                }
+                if(cakelayercount ==1){
+                    ImageButton squarecake1 = (ImageButton) findViewById(R.id.squarecake1);
+                    squarecake1.setVisibility(View.VISIBLE);
+                }
+                if(cakelayercount ==2){
+                    ImageButton squarecake2 = (ImageButton) findViewById(R.id.squarecake2);
+                    squarecake2.setVisibility(View.VISIBLE);
+                }
+                cakelayercount = cakelayercount + 1 ;
+            }
+        });
+
+
+
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+
+            ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
+            TextView roundcakelabel = (TextView) findViewById(R.id.roundcakelabel);
+            TextView squarecakeLabel = (TextView) findViewById(R.id.squarecakelabel);
+
+
+            public boolean onLongClick(View v) {
+                squarecakebutton.setVisibility(View.VISIBLE);
+                squarecakeLabel.setVisibility(View.VISIBLE);
+                roundcakelabel.setVisibility(View.VISIBLE);
+
+                final Animation animShake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
+                squarecakebutton.startAnimation(animShake);
+                squarecakeLabel.startAnimation(animShake);
+                roundcakelabel.startAnimation(animShake);
+                return true;
+
+            }
+        });
+
 
 
     }
