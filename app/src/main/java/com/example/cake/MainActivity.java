@@ -1,5 +1,6 @@
 package com.example.cake;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -124,9 +125,15 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton heartsprinkles = (ImageButton) findViewById(R.id.heartsprinklescake);
         heartsprinkles.bringToFront();
 
+        final ImageButton check = (ImageButton) findViewById(R.id.check);
+        check.bringToFront();
+
+        final ImageButton wrong = (ImageButton) findViewById(R.id.wrong);
+        wrong.bringToFront();
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////rainbow frosting//////////////////////////////////////////////////////////////////////////////////////
 
 
         ImageButton colorfrosting = (ImageButton) findViewById(R.id.coloredfrosting);
@@ -138,14 +145,24 @@ public class MainActivity extends AppCompatActivity {
                     ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
                     ImageButton rainbowfrostingcake = (ImageButton) findViewById(R.id.rainbowfrostingcake);
                     ImageButton rainbowfrostingcaketier2 = (ImageButton) findViewById(R.id.rainbowfrostingcaketier2);
+                    ImageButton yellowfrostingcake = (ImageButton) findViewById(R.id.yellowfrostingcake);
 
-                ImageButton yellowfrostingcake = (ImageButton) findViewById(R.id.yellowfrostingcake);
+                    if(roundcake.getVisibility()== View.VISIBLE && roundcake1.getVisibility()== View.VISIBLE)
+                    {
+                        rainbowfrostingcake.setVisibility(View.VISIBLE);
+                        bluefrostingcake.setVisibility(View.INVISIBLE);
+                        rainbowfrostingcaketier2.setVisibility(View.VISIBLE);
+                        bluefrostingcaketier2.setVisibility(View.INVISIBLE);
+                        yellowfrostingcake.setVisibility(View.INVISIBLE);
 
-                    rainbowfrostingcake.setVisibility(View.VISIBLE);
-                    rainbowfrostingcaketier2.setVisibility(View.VISIBLE);
-                    bluefrostingcake.setVisibility(View.INVISIBLE);
-                    bluefrostingcaketier2.setVisibility(View.INVISIBLE);
-                    yellowfrostingcake.setVisibility(View.INVISIBLE);
+
+                    }
+                    else {
+                        rainbowfrostingcake.setVisibility(View.VISIBLE);
+                        bluefrostingcake.setVisibility(View.INVISIBLE);
+                        bluefrostingcaketier2.setVisibility(View.INVISIBLE);
+                        yellowfrostingcake.setVisibility(View.INVISIBLE);
+                    }
 
 
 
@@ -226,6 +243,26 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+////////////////////// correct, wrong images ///////////////////////////////////////////////////////
+        Button submitbtn = (Button) findViewById(R.id.submit);
+        submitbtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if(roundcake.getVisibility()== View.VISIBLE && roundcake1.getVisibility()==View.VISIBLE) {
+                    final ImageButton check = (ImageButton) findViewById(R.id.check);
+                    check.setVisibility(View.VISIBLE);
+                    check.animate().alpha(0f).setDuration(5000);
+                }
+
+                else{
+                    final ImageButton wrong = (ImageButton) findViewById(R.id.wrong);
+                    wrong.setVisibility(View.VISIBLE);
+                    wrong.animate().alpha(0f).setDuration(5000);
+                }
+            }
+        }));
 
 
 
