@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     int bluefrostingbtncount=0;
     int rainbowfrostingbtncount=0;
     int candlebtncount=0;
+    boolean  visibility = true ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -215,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton bluefrostingbtn = (ImageButton) findViewById(R.id.bluefrosting);
         bluefrostingbtn.setOnClickListener((new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                // if (bluefrostingbtncount == 0)
@@ -344,6 +348,21 @@ public class MainActivity extends AppCompatActivity {
         sprinklesbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
+                ImageButton heartcakebutton = (ImageButton) findViewById(R.id.heartbutton);
+                ImageButton roundcakebutton = (ImageButton) findViewById(R.id.roundcakebutton);
+                TextView roundcakelabel = (TextView) findViewById(R.id.roundcakelabel);
+                TextView squarecakeLabel = (TextView) findViewById(R.id.squarecakelabel);
+                TextView heartcakelabel = (TextView) findViewById(R.id.heartlabel);
+
+                squarecakebutton.setVisibility(View.INVISIBLE);
+                heartcakebutton.setVisibility(View.INVISIBLE);
+                roundcakebutton.setVisibility(View.INVISIBLE);
+
+                squarecakeLabel.setVisibility(View.INVISIBLE);
+                roundcakelabel.setVisibility(View.INVISIBLE);
+                heartcakelabel.setVisibility(View.INVISIBLE);
+
                 if(sprinklesbtncount==0) {
                     ImageButton greensprinkles = (ImageButton) findViewById(R.id.greensprinkles);
                     ImageButton redsprinkles = (ImageButton) findViewById(R.id.redsprinkles);
@@ -406,6 +425,21 @@ public class MainActivity extends AppCompatActivity {
         candlebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
+                ImageButton heartcakebutton = (ImageButton) findViewById(R.id.heartbutton);
+                ImageButton roundcakebutton = (ImageButton) findViewById(R.id.roundcakebutton);
+                TextView roundcakelabel = (TextView) findViewById(R.id.roundcakelabel);
+                TextView squarecakeLabel = (TextView) findViewById(R.id.squarecakelabel);
+                TextView heartcakelabel = (TextView) findViewById(R.id.heartlabel);
+
+                squarecakebutton.setVisibility(View.INVISIBLE);
+                heartcakebutton.setVisibility(View.INVISIBLE);
+                roundcakebutton.setVisibility(View.INVISIBLE);
+
+                squarecakeLabel.setVisibility(View.INVISIBLE);
+                roundcakelabel.setVisibility(View.INVISIBLE);
+                heartcakelabel.setVisibility(View.INVISIBLE);
+
                 if(candlebtncount==0) {
                     ImageButton pinkcandleoption = (ImageButton) findViewById(R.id.pinkcandleoption);
                     ImageButton bluecandleoption = (ImageButton) findViewById(R.id.bluecandleoption);
@@ -487,8 +521,10 @@ public class MainActivity extends AppCompatActivity {
         ImageButton button = (ImageButton) findViewById(R.id.cakebutton);
         ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
         ImageButton heartcakebutton = (ImageButton) findViewById(R.id.heartbutton);
+        ImageButton roundcakebutton = (ImageButton) findViewById(R.id.roundcakebutton);
 
-        button.setOnClickListener(new View.OnClickListener() {
+
+        roundcakebutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(cakelayercount ==0){
                 ImageButton roundcake = (ImageButton) findViewById(R.id.roundcake);
@@ -547,32 +583,53 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        button.setOnLongClickListener(new View.OnLongClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.d("myTag",String.valueOf(visibility));
 
-            ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
+                ImageButton squarecakebutton = (ImageButton) findViewById(R.id.squarecakebutton);
             ImageButton heartcakebutton = (ImageButton) findViewById(R.id.heartbutton);
-
+            ImageButton roundcakebutton = (ImageButton) findViewById(R.id.roundcakebutton);
             TextView roundcakelabel = (TextView) findViewById(R.id.roundcakelabel);
             TextView squarecakeLabel = (TextView) findViewById(R.id.squarecakelabel);
             TextView heartcakelabel = (TextView) findViewById(R.id.heartlabel);
 
 
-            public boolean onLongClick(View v) {
-                squarecakebutton.setVisibility(View.VISIBLE);
-                heartcakebutton.setVisibility(View.VISIBLE);
+              if(visibility == true  ) {
+                  Log.d("myTag","in true ");
 
-                squarecakeLabel.setVisibility(View.VISIBLE);
-                roundcakelabel.setVisibility(View.VISIBLE);
-                heartcakelabel.setVisibility(View.VISIBLE);
+                  squarecakebutton.setVisibility(View.VISIBLE);
+                  heartcakebutton.setVisibility(View.VISIBLE);
+                  roundcakebutton.setVisibility(View.VISIBLE);
 
-                final Animation animShake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
-                squarecakebutton.startAnimation(animShake);
-                squarecakeLabel.startAnimation(animShake);
-                roundcakelabel.startAnimation(animShake);
-                heartcakelabel.startAnimation(animShake);
-                heartcakebutton.startAnimation(animShake);
+                  squarecakeLabel.setVisibility(View.VISIBLE);
+                  roundcakelabel.setVisibility(View.VISIBLE);
+                  heartcakelabel.setVisibility(View.VISIBLE);
 
-                return true;
+
+                  final Animation animShake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
+                  squarecakebutton.startAnimation(animShake);
+                  roundcakebutton.startAnimation(animShake);
+
+                  squarecakeLabel.startAnimation(animShake);
+                  roundcakelabel.startAnimation(animShake);
+                  heartcakelabel.startAnimation(animShake);
+                  heartcakebutton.startAnimation(animShake);
+              }
+
+              if(visibility == false ){
+                  Log.d("myTag","in false ");
+//                  v.clearAnimation();
+
+                  squarecakebutton.setVisibility(View.INVISIBLE);
+                  heartcakebutton.setVisibility(View.INVISIBLE);
+                  roundcakebutton.setVisibility(View.INVISIBLE);
+
+                  squarecakeLabel.setVisibility(View.INVISIBLE);
+                  roundcakelabel.setVisibility(View.INVISIBLE);
+                  heartcakelabel.setVisibility(View.INVISIBLE);
+              }
+              visibility = !visibility;
 
             }
         });
