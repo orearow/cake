@@ -1,6 +1,8 @@
 package com.example.cake;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -36,12 +38,19 @@ public class MainActivity extends AppCompatActivity {
     int candlebtncount=0;
     int submitcount = 0;
     boolean  visibility = true ;
-    ArrayList<Object> passcode = new ArrayList<Object>();
-    ArrayList<Object> compare_to = new ArrayList<Object>();
+    ArrayList<String> passcode = new ArrayList<String>();
+    ArrayList<String> compare_to = new ArrayList<String>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(passcode == null){
+            passcode.add("roundlow");
+            passcode.add("roundmid");
+        }
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -326,8 +335,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
+                Log.d("contents", compare_to.toString());
 
-                  if (roundcake.getVisibility() == View.VISIBLE && roundcake1.getVisibility() == View.VISIBLE && bluecandletier2.getVisibility() == View.VISIBLE) {
+                if(compare_to.equals(passcode) == true ){
+//                  if (roundcake.getVisibility() == View.VISIBLE && roundcake1.getVisibility() == View.VISIBLE && bluecandletier2.getVisibility() == View.VISIBLE) {
                       final ImageButton check = (ImageButton) findViewById(R.id.check);
                       check.setVisibility(View.VISIBLE);
                       check.animate().alpha(0f).setDuration(3000);
@@ -476,6 +487,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 cakelayercount = 0;
+                compare_to = new ArrayList<String>();
+
             }
 
         });
@@ -485,7 +498,7 @@ public class MainActivity extends AppCompatActivity {
         setNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               passcode = new ArrayList<Object>();
+               passcode = new ArrayList<String>();
                 ConstraintLayout parent = (ConstraintLayout) findViewById(R.id.layout);
                 int childCount = parent.getChildCount();
                 int count = 0;
@@ -501,6 +514,23 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }
+
+                new AlertDialog.Builder(v.getContext())
+                        .setTitle("New Code Set")
+                        .setMessage("You have created a new code")
+
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Continue with delete operation
+                            }
+                        })
+
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
 
             }
 
