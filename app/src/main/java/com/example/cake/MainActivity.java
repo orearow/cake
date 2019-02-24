@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
             passcode.add("roundmid");
         }
 
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -304,8 +302,7 @@ public class MainActivity extends AppCompatActivity {
 
                     ImageButton coloredsprinkles = (ImageButton) findViewById(R.id.sprinklescake);
                     coloredsprinkles.setVisibility(View.VISIBLE);
-
-
+                    compare_to.add("coloredsprinkles");
 
             }
         }));
@@ -316,6 +313,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ImageButton blacksprinklescake = (ImageButton) findViewById(R.id.blacksprinklescake);
                 blacksprinklescake.setVisibility(View.VISIBLE);
+                compare_to.add("blacksprinklescake");
+
+
             }
         }));
 
@@ -325,6 +325,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ImageButton heartsprinklescake = (ImageButton) findViewById(R.id.heartsprinklescake);
                 heartsprinklescake.setVisibility(View.VISIBLE);
+                compare_to.add("heartsprinkles");
+
             }
         }));
 
@@ -334,8 +336,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                java.util.Collections.sort(passcode);
+                java.util.Collections.sort(compare_to);
 
-                Log.d("contents", compare_to.toString());
+                Log.d("compareto", compare_to.toString());
+
+                Log.d("passcode", passcode.toString());
 
                 if(compare_to.equals(passcode) == true ){
 //                  if (roundcake.getVisibility() == View.VISIBLE && roundcake1.getVisibility() == View.VISIBLE && bluecandletier2.getVisibility() == View.VISIBLE) {
@@ -498,32 +504,37 @@ public class MainActivity extends AppCompatActivity {
         setNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               passcode = new ArrayList<String>();
-                ConstraintLayout parent = (ConstraintLayout) findViewById(R.id.layout);
-                int childCount = parent.getChildCount();
-                int count = 0;
-                for(int i = 0; i < childCount; i++) {
-                    if(parent.getChildAt(i).getVisibility() == View.VISIBLE) {
-                        if(parent.getChildAt(i).getTag() != null){
-                            Log.d("allthings",parent.getChildAt(i).getTag().toString());
-                            passcode.add(parent.getChildAt(i).getTag().toString());
-                            Log.d("thingies", passcode.toString());
-
-                        }
-
-
-                    }
-                }
 
                 new AlertDialog.Builder(v.getContext())
-                        .setTitle("New Code Set")
-                        .setMessage("You have created a new code")
+                        .setTitle("New Code ")
+                        .setMessage("Create a new code and ovewrite old code")
 
                         // Specifying a listener allows you to take an action before dismissing the dialog.
                         // The dialog is automatically dismissed when a dialog button is clicked.
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                // Continue with delete operation
+
+
+
+                                passcode = new ArrayList<String>();
+                                ConstraintLayout parent = (ConstraintLayout) findViewById(R.id.layout);
+                                int childCount = parent.getChildCount();
+                                int count = 0;
+                                for(int i = 0; i < childCount; i++) {
+                                    if(parent.getChildAt(i).getVisibility() == View.VISIBLE) {
+                                        if(parent.getChildAt(i).getTag() != null){
+                                            Log.d("allthings",parent.getChildAt(i).getTag().toString());
+                                            passcode.add(parent.getChildAt(i).getTag().toString());
+                                            Log.d("thingies", passcode.toString());
+
+                                        }
+
+
+                                    }
+                                }
+
+
+
                             }
                         })
 
