@@ -20,7 +20,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 import petrov.kristiyan.colorpicker.ColorPicker;
 
@@ -33,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     int rainbowfrostingbtncount=0;
     int candlebtncount=0;
     boolean  visibility = true ;
-
+    ArrayList<Object> passcode = new ArrayList<Object>();
+    ArrayList<Object> compare_to = new ArrayList<Object>();
 
 
     @Override
@@ -42,15 +45,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               // opencolorpicker();
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-            }
-        });
+
+
 
 
         final ImageButton roundcake = (ImageButton) findViewById(R.id.roundcake);
@@ -417,7 +413,38 @@ public class MainActivity extends AppCompatActivity {
 
                 cakelayercount = 0;
             }
+
         });
+
+
+        Button setNew = (Button) findViewById(R.id.setNew);
+        setNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               passcode = new ArrayList<Object>();
+                ConstraintLayout parent = (ConstraintLayout) findViewById(R.id.layout);
+                int childCount = parent.getChildCount();
+                int count = 0;
+                for(int i = 0; i < childCount; i++) {
+                    if(parent.getChildAt(i).getVisibility() == View.VISIBLE) {
+                        if(parent.getChildAt(i).getTag() != null){
+                            Log.d("allthings",parent.getChildAt(i).getTag().toString());
+                            passcode.add(parent.getChildAt(i).getTag().toString());
+                            Log.d("thingies", passcode.toString());
+
+                        }
+
+
+                    }
+                }
+
+            }
+
+
+
+        });
+
+
 
         ////////////////////// displays candle options with button click ///////////////////////////
 
@@ -529,16 +556,21 @@ public class MainActivity extends AppCompatActivity {
                 if(cakelayercount ==0){
                 ImageButton roundcake = (ImageButton) findViewById(R.id.roundcake);
                 roundcake.setVisibility(View.VISIBLE);
+                compare_to.add("roundlow");
 
 
                 }
                 if(cakelayercount ==1){
                     ImageButton roundcake1 = (ImageButton) findViewById(R.id.roundcake1);
                     roundcake1.setVisibility(View.VISIBLE);
+                    compare_to.add("roundmid");
+
                 }
                 if(cakelayercount ==2){
                     ImageButton roundcake2 = (ImageButton) findViewById(R.id.roundcake2);
                     roundcake2.setVisibility(View.VISIBLE);
+                    compare_to.add("roundhigh");
+
                 }
                 cakelayercount = cakelayercount + 1 ;
             }
@@ -550,15 +582,20 @@ public class MainActivity extends AppCompatActivity {
                 if(cakelayercount ==0){
                     ImageButton squarecake = (ImageButton) findViewById(R.id.squarecake);
                     squarecake.setVisibility(View.VISIBLE);
+                    compare_to.add("squarelow");
                 }
                 if(cakelayercount ==1){
                     ImageButton squarecake1 = (ImageButton) findViewById(R.id.squarecake1);
                     squarecake1.setVisibility(View.VISIBLE);
+                    compare_to.add("squaremid");
+
                 }
                 if(cakelayercount ==2){
                     ImageButton squarecake2 = (ImageButton) findViewById(R.id.squarecake2);
                     squarecake2.setVisibility(View.VISIBLE);
                 }
+                compare_to.add("squarehigh");
+
                 cakelayercount = cakelayercount + 1 ;
             }
         });
@@ -568,14 +605,20 @@ public class MainActivity extends AppCompatActivity {
                 if(cakelayercount ==0){
                     ImageButton heartcake = (ImageButton) findViewById(R.id.heartcake);
                     heartcake.setVisibility(View.VISIBLE);
+                    compare_to.add("heartlow");
+
                 }
                 if(cakelayercount ==1){
                     ImageButton heartcake1 = (ImageButton) findViewById(R.id.heartlayer1);
                     heartcake1.setVisibility(View.VISIBLE);
+                    compare_to.add("heartmid");
+
                 }
                 if(cakelayercount ==2){
                     ImageButton heartcake2 = (ImageButton) findViewById(R.id.heartcake2);
                     heartcake2.setVisibility(View.VISIBLE);
+                    compare_to.add("hearthigh");
+
                 }
                 cakelayercount = cakelayercount + 1 ;
             }

@@ -344,6 +344,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:tag="roundlow"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="7dp"
         android:layout_marginBottom="8dp"
@@ -377,6 +378,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.693"
+       android:tag ="heartlow"
         app:srcCompat="@drawable/heartlayer" />
 
 
@@ -388,6 +390,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:tag="squarelow"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
@@ -411,6 +414,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:tag="heartmid"
         android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
         android:tint="#ff99cc"
@@ -531,6 +535,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:tint="#54a8e7"
+        android:tag="roundmid"
         android:layout_marginLeft="8dp"
         android:visibility="invisible"
         android:layout_marginTop="8dp"
@@ -553,6 +558,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:tint="#fff69b"
+        android:tag="squaremid"
         android:layout_marginLeft="8dp"
         android:visibility="invisible"
         android:layout_marginTop="8dp"
@@ -575,6 +581,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:tag="roundhigh"
         android:tint="#7cc3f9"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -603,6 +610,7 @@
         android:background="@android:color/transparent"
         android:tint="#f9b8c8"
         android:visibility="invisible"
+        android:tag="hearthigh"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.747"
@@ -617,6 +625,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:tag="squarehigh"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -1008,6 +1017,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/resetbtn" />
+
+    <Button
+        android:id="@+id/setNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Set New Code"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.986" />
 
 
 </android.support.constraint.ConstraintLayout>
