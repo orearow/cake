@@ -159,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton heartsprinkles = (ImageButton) findViewById(R.id.heartsprinklescake);
         heartsprinkles.bringToFront();
 
+        final ImageButton blacksprinklescake = (ImageButton) findViewById(R.id.blacksprinklescake);
+        blacksprinklescake.bringToFront();
+
         final ImageButton check = (ImageButton) findViewById(R.id.check);
         check.bringToFront();
 
@@ -293,8 +296,21 @@ public class MainActivity extends AppCompatActivity {
         coloredsprinklesbtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageButton coloredsprinkles = (ImageButton) findViewById(R.id.sprinklescake);
-                coloredsprinkles.setVisibility(View.VISIBLE);
+
+                    ImageButton coloredsprinkles = (ImageButton) findViewById(R.id.sprinklescake);
+                    coloredsprinkles.setVisibility(View.VISIBLE);
+
+
+
+            }
+        }));
+
+        ImageButton blacksprinklesbtn = (ImageButton) findViewById(R.id.blacksprinkles);
+        blacksprinklesbtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageButton blacksprinklescake = (ImageButton) findViewById(R.id.blacksprinklescake);
+                blacksprinklescake.setVisibility(View.VISIBLE);
             }
         }));
 
@@ -441,6 +457,7 @@ public class MainActivity extends AppCompatActivity {
                 heartcake2.setVisibility(View.INVISIBLE);
                 heartsprinkles.setVisibility(View.INVISIBLE);
                 coloredsprinkles.setVisibility(View.INVISIBLE);
+                blacksprinklescake.setVisibility(View.INVISIBLE);
                 bluefrostingcake.setVisibility(View.INVISIBLE);
                 bluefrostingcaketier2.setVisibility(View.INVISIBLE);
                 rainbowfrosting.setVisibility(View.INVISIBLE);
