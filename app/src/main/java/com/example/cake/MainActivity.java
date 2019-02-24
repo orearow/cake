@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     int bluefrostingbtncount=0;
     int rainbowfrostingbtncount=0;
     int candlebtncount=0;
+    int submitcount = 0;
     boolean  visibility = true ;
     ArrayList<Object> passcode = new ArrayList<Object>();
     ArrayList<Object> compare_to = new ArrayList<Object>();
@@ -154,6 +155,9 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton heartsprinkles = (ImageButton) findViewById(R.id.heartsprinklescake);
         heartsprinkles.bringToFront();
 
+        final ImageButton blacksprinklescake = (ImageButton) findViewById(R.id.blacksprinklescake);
+        blacksprinklescake.bringToFront();
+
         final ImageButton check = (ImageButton) findViewById(R.id.check);
         check.bringToFront();
 
@@ -168,6 +172,26 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageButton pinkcandle = (ImageButton) findViewById(R.id.pinkcandle);
         pinkcandle.bringToFront();
+
+        final ImageButton pinkcandletier2 = (ImageButton) findViewById(R.id.pinkcandletier2);
+        pinkcandletier2.bringToFront();
+
+        final ImageButton purplecandletier2 = (ImageButton) findViewById(R.id.bluecandletier2);
+        purplecandletier2.bringToFront();
+
+        final ImageButton bluecandletier2 = (ImageButton) findViewById(R.id.bluecandletier2);
+        bluecandletier2.bringToFront();
+
+        final ImageButton pinkcandletier1 = (ImageButton) findViewById(R.id.pinkcandletier2);
+        pinkcandletier1.bringToFront();
+
+        final ImageButton purplecandletier1 = (ImageButton) findViewById(R.id.bluecandletier2);
+        purplecandletier1.bringToFront();
+
+        final ImageButton bluecandletier1 = (ImageButton) findViewById(R.id.bluecandletier2);
+        bluecandletier1.bringToFront();
+
+
 
 
 
@@ -268,8 +292,21 @@ public class MainActivity extends AppCompatActivity {
         coloredsprinklesbtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageButton coloredsprinkles = (ImageButton) findViewById(R.id.sprinklescake);
-                coloredsprinkles.setVisibility(View.VISIBLE);
+
+                    ImageButton coloredsprinkles = (ImageButton) findViewById(R.id.sprinklescake);
+                    coloredsprinkles.setVisibility(View.VISIBLE);
+
+
+
+            }
+        }));
+
+        ImageButton blacksprinklesbtn = (ImageButton) findViewById(R.id.blacksprinkles);
+        blacksprinklesbtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageButton blacksprinklescake = (ImageButton) findViewById(R.id.blacksprinklescake);
+                blacksprinklescake.setVisibility(View.VISIBLE);
             }
         }));
 
@@ -289,19 +326,30 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if(roundcake.getVisibility()== View.VISIBLE && roundcake1.getVisibility()==View.VISIBLE) {
-                    final ImageButton check = (ImageButton) findViewById(R.id.check);
-                    check.setVisibility(View.VISIBLE);
-                    check.animate().alpha(0f).setDuration(5000);
-                    moveTaskToBack(true);
-                }
 
-                else{
-                    final ImageButton wrong = (ImageButton) findViewById(R.id.wrong);
-                    wrong.setVisibility(View.VISIBLE);
-                    wrong.animate().alpha(0f).setDuration(5000);
-                }
-            }
+                  if (roundcake.getVisibility() == View.VISIBLE && roundcake1.getVisibility() == View.VISIBLE && bluecandletier2.getVisibility() == View.VISIBLE) {
+                      final ImageButton check = (ImageButton) findViewById(R.id.check);
+                      check.setVisibility(View.VISIBLE);
+                      check.animate().alpha(0f).setDuration(3000);
+                      moveTaskToBack(true);
+                  } else if(wrong.getVisibility()==View.INVISIBLE) {
+
+                      ImageButton wrong = (ImageButton) findViewById(R.id.wrong);
+                      wrong.setVisibility(View.VISIBLE);
+                   //   wrong.animate().alpha(0f).setDuration(3000);
+
+
+                      //  wrong.animate().
+                  }
+
+
+
+
+
+              }
+
+
+
         }));
 
 
@@ -405,11 +453,27 @@ public class MainActivity extends AppCompatActivity {
                 heartcake2.setVisibility(View.INVISIBLE);
                 heartsprinkles.setVisibility(View.INVISIBLE);
                 coloredsprinkles.setVisibility(View.INVISIBLE);
+                blacksprinklescake.setVisibility(View.INVISIBLE);
                 bluefrostingcake.setVisibility(View.INVISIBLE);
                 bluefrostingcaketier2.setVisibility(View.INVISIBLE);
                 rainbowfrosting.setVisibility(View.INVISIBLE);
                 rainbowfrostingtier2.setVisibility(View.INVISIBLE);
                 yellowfrosting.setVisibility(View.INVISIBLE);
+                pinkcandle.setVisibility(View.INVISIBLE);
+                bluecandle.setVisibility(View.INVISIBLE);
+                purplecandle.setVisibility(View.INVISIBLE);
+
+                pinkcandletier2.setVisibility(View.INVISIBLE);
+                purplecandletier2.setVisibility(View.INVISIBLE);
+                bluecandletier2.setVisibility(View.INVISIBLE);
+
+                purplecandletier1.setVisibility(View.INVISIBLE);
+                purplecandletier1.setVisibility(View.INVISIBLE);
+                bluecandletier1.setVisibility(View.INVISIBLE);
+
+                wrong.setVisibility(View.INVISIBLE);
+
+
 
                 cakelayercount = 0;
             }
@@ -500,44 +564,205 @@ public class MainActivity extends AppCompatActivity {
         ImageButton bluecandleoption = (ImageButton) findViewById(R.id.bluecandleoption);
         ImageButton purplecandleoption = (ImageButton) findViewById(R.id.purplecandleoption);
 
-        pinkcandleoption.setOnClickListener(new View.OnClickListener() {
+
+
+        pinkcandleoption.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pinkcandle.setVisibility(View.VISIBLE);
-                if(purplecandle.getVisibility()==View.VISIBLE || bluecandle.getVisibility()==View.VISIBLE) {
 
-                    bluecandle.setVisibility(View.INVISIBLE);
+                ImageButton pinkcandle = (ImageButton) findViewById(R.id.pinkcandle);
+                ImageButton bluecandle = (ImageButton) findViewById(R.id.bluecandle);
+                ImageButton purplecandle = (ImageButton) findViewById(R.id.purplecandle);
+                ImageButton pinkcandletier2 = (ImageButton) findViewById(R.id.pinkcandletier2);
+                ImageButton bluecandletier2 = (ImageButton) findViewById(R.id.bluecandletier2);
+                ImageButton purplecandletier2 = (ImageButton) findViewById(R.id.purplecandletier2);
+
+
+                if((roundcake1.getVisibility()== View.VISIBLE || squarecake1.getVisibility()== View.VISIBLE || heartcake1.getVisibility()== View.VISIBLE)
+                        && (roundcake2.getVisibility()== View.VISIBLE || squarecake2.getVisibility()== View.VISIBLE || heartcake2.getVisibility()== View.VISIBLE))
+                {
+                    pinkcandle.setVisibility(View.VISIBLE);
                     purplecandle.setVisibility(View.INVISIBLE);
+                    bluecandle.setVisibility(View.INVISIBLE);
+                    pinkcandletier2.setVisibility(View.INVISIBLE);
+                    purplecandletier2.setVisibility(View.INVISIBLE);
+                    bluecandletier2.setVisibility(View.INVISIBLE);
+
+
+
                 }
 
-            }
-        });
+                else if ((roundcake.getVisibility()==View.VISIBLE || squarecake.getVisibility()==View.VISIBLE || heartcake.getVisibility()==View.VISIBLE)
+                        && (roundcake1.getVisibility()==View.VISIBLE || squarecake1.getVisibility()==View.VISIBLE || heartcake1.getVisibility()==View.VISIBLE)
+                        && (roundcake2.getVisibility()==View.INVISIBLE || squarecake2.getVisibility()==View.INVISIBLE || heartcake2.getVisibility()==View.INVISIBLE)) {
 
-        bluecandleoption.setOnClickListener(new View.OnClickListener() {
+                    pinkcandletier2.setVisibility(View.VISIBLE);
+                    purplecandletier2.setVisibility(View.INVISIBLE);
+                    bluecandletier2.setVisibility(View.INVISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                    purplecandle.setVisibility(View.INVISIBLE);
+                    bluecandle.setVisibility(View.INVISIBLE);
+
+
+                }
+
+                else if(roundcake.getVisibility()==View.VISIBLE && roundcake1.getVisibility()==View.INVISIBLE && roundcake2.getVisibility()==View.INVISIBLE){
+
+
+                    pinkcandletier1.setVisibility(View.VISIBLE);
+                    purplecandletier1.setVisibility(View.INVISIBLE);
+                    bluecandletier1.setVisibility(View.INVISIBLE);
+                    pinkcandletier2.setVisibility(View.INVISIBLE);
+                    purplecandletier2.setVisibility(View.INVISIBLE);
+                    bluecandletier2.setVisibility(View.INVISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                    purplecandle.setVisibility(View.INVISIBLE);
+                    bluecandle.setVisibility(View.INVISIBLE);
+                }
+
+
+
+            }
+        }));
+
+        bluecandleoption.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bluecandle.setVisibility(View.VISIBLE);
 
-                if(pinkcandle.getVisibility()==View.VISIBLE || purplecandle.getVisibility()==View.VISIBLE) {
+                ImageButton pinkcandle = (ImageButton) findViewById(R.id.pinkcandle);
+                ImageButton bluecandle = (ImageButton) findViewById(R.id.bluecandle);
+                ImageButton purplecandle = (ImageButton) findViewById(R.id.purplecandle);
+                ImageButton pinkcandletier2 = (ImageButton) findViewById(R.id.pinkcandletier2);
+                ImageButton bluecandletier2 = (ImageButton) findViewById(R.id.bluecandletier2);
+                ImageButton purplecandletier2 = (ImageButton) findViewById(R.id.purplecandletier2);
+
+
+                if((roundcake1.getVisibility()== View.VISIBLE || heartcake1.getVisibility()==View.VISIBLE || squarecake1.getVisibility()==View.VISIBLE) &&
+                        (roundcake2.getVisibility()== View.VISIBLE || heartcake2.getVisibility()==View.VISIBLE || squarecake2.getVisibility()==View.VISIBLE))
+                {
+                    bluecandle.setVisibility(View.VISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                    purplecandle.setVisibility(View.INVISIBLE);
+
+                    pinkcandletier2.setVisibility(View.INVISIBLE);
+                    purplecandletier2.setVisibility(View.INVISIBLE);
+                    bluecandletier2.setVisibility(View.INVISIBLE);
+
+
+
+                }
+
+                else if ((roundcake.getVisibility()==View.VISIBLE || squarecake.getVisibility()==View.VISIBLE || heartcake.getVisibility()==View.VISIBLE)
+
+                        && (roundcake1.getVisibility()==View.VISIBLE || squarecake1.getVisibility()==View.VISIBLE || heartcake1.getVisibility()==View.VISIBLE)
+                        && (roundcake2.getVisibility()==View.INVISIBLE || squarecake2.getVisibility()==View.INVISIBLE || heartcake2.getVisibility()==View.INVISIBLE)) {
+
+                    pinkcandletier2.setVisibility(View.INVISIBLE);
+                    purplecandletier2.setVisibility(View.INVISIBLE);
+                    bluecandletier2.setVisibility(View.VISIBLE);
+
+                    bluecandle.setVisibility(View.INVISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                    purplecandle.setVisibility(View.INVISIBLE);
+
+
+                }
+
+                else if(roundcake.getVisibility()==View.VISIBLE && roundcake1.getVisibility()==View.INVISIBLE && roundcake2.getVisibility()==View.INVISIBLE){
+
+
+                    pinkcandletier1.setVisibility(View.INVISIBLE);
+                    purplecandletier1.setVisibility(View.INVISIBLE);
+                    bluecandletier1.setVisibility(View.VISIBLE);
+
+                    pinkcandletier2.setVisibility(View.INVISIBLE);
+                    purplecandletier2.setVisibility(View.INVISIBLE);
+                    bluecandletier2.setVisibility(View.INVISIBLE);
+
+                    bluecandle.setVisibility(View.INVISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                    purplecandle.setVisibility(View.INVISIBLE);
+
+
+                }
+
+
+            }
+        }));
+
+        purplecandleoption.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ImageButton pinkcandle = (ImageButton) findViewById(R.id.pinkcandle);
+                ImageButton bluecandle = (ImageButton) findViewById(R.id.bluecandle);
+                ImageButton purplecandle = (ImageButton) findViewById(R.id.purplecandle);
+                ImageButton pinkcandletier2 = (ImageButton) findViewById(R.id.pinkcandletier2);
+                ImageButton bluecandletier2 = (ImageButton) findViewById(R.id.bluecandletier2);
+                ImageButton purplecandletier2 = (ImageButton) findViewById(R.id.purplecandletier2);
+                //   ImageButton bluecandle = (ImageButton) findViewById(R.id.bluecandle);
+                //  ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
+                //  ImageButton rainbowfrostingcake = (ImageButton) findViewById(R.id.rainbowfrostingcake);
+                //  ImageButton rainbowfrostingcaketier2 = (ImageButton) findViewById(R.id.rainbowfrostingcaketier2);
+                //  ImageButton yellowfrostingcake = (ImageButton) findViewById(R.id.yellowfrostingcake);
+
+                if((roundcake1.getVisibility()== View.VISIBLE || squarecake1.getVisibility()==View.VISIBLE || heartcake1.getVisibility()==View.VISIBLE)&&
+                        (roundcake2.getVisibility()== View.VISIBLE || squarecake2.getVisibility()==View.VISIBLE || heartcake2.getVisibility()==View.VISIBLE))
+                {
+                    purplecandle.setVisibility(View.VISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                    bluecandle.setVisibility(View.INVISIBLE);
+
+                    pinkcandletier2.setVisibility(View.INVISIBLE);
+                    purplecandletier2.setVisibility(View.INVISIBLE);
+                    bluecandletier2.setVisibility(View.INVISIBLE);
+
+                    pinkcandletier1.setVisibility(View.INVISIBLE);
+                    purplecandletier1.setVisibility(View.INVISIBLE);
+                    bluecandletier1.setVisibility(View.INVISIBLE);
+
+                }
+
+
+                else if ((roundcake.getVisibility()==View.VISIBLE || squarecake.getVisibility()==View.VISIBLE || heartcake.getVisibility()==View.VISIBLE)
+                        && (roundcake1.getVisibility()==View.VISIBLE || squarecake1.getVisibility()==View.VISIBLE || heartcake1.getVisibility()==View.VISIBLE) &&
+                        (roundcake2.getVisibility()==View.INVISIBLE || squarecake2.getVisibility()==View.VISIBLE || heartcake2.getVisibility()==View.VISIBLE)){
+
+                    pinkcandletier2.setVisibility(View.INVISIBLE);
+                    purplecandletier2.setVisibility(View.VISIBLE);
+                    bluecandletier2.setVisibility(View.INVISIBLE);
 
                     purplecandle.setVisibility(View.INVISIBLE);
                     pinkcandle.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        purplecandleoption.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                purplecandle.setVisibility(View.VISIBLE);
-                if(pinkcandle.getVisibility()==View.VISIBLE || bluecandle.getVisibility()==View.VISIBLE) {
-
-
                     bluecandle.setVisibility(View.INVISIBLE);
-                    pinkcandle.setVisibility(View.INVISIBLE);
+
+
+                    pinkcandletier1.setVisibility(View.INVISIBLE);
+                    purplecandletier1.setVisibility(View.INVISIBLE);
+                    bluecandletier1.setVisibility(View.INVISIBLE);
+
                 }
+
+                else if(roundcake.getVisibility()==View.VISIBLE && roundcake1.getVisibility()==View.INVISIBLE && roundcake2.getVisibility()==View.INVISIBLE){
+
+
+                    pinkcandletier1.setVisibility(View.INVISIBLE);
+                    purplecandletier1.setVisibility(View.VISIBLE);
+                    bluecandletier1.setVisibility(View.INVISIBLE);
+
+                    purplecandle.setVisibility(View.INVISIBLE);
+                    pinkcandle.setVisibility(View.INVISIBLE);
+                    bluecandle.setVisibility(View.INVISIBLE);
+
+                    pinkcandletier2.setVisibility(View.INVISIBLE);
+                    purplecandletier2.setVisibility(View.INVISIBLE);
+                    bluecandletier2.setVisibility(View.INVISIBLE);
+                }
+
+
+
             }
-        });
+        }));
 
 
 
