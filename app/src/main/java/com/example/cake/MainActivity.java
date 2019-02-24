@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     int bluefrostingbtncount=0;
     int rainbowfrostingbtncount=0;
     int candlebtncount=0;
-    int submitcount = 0;
     boolean  visibility = true ;
     ArrayList<String> passcode = new ArrayList<String>();
     ArrayList<String> compare_to = new ArrayList<String>();
@@ -141,6 +140,15 @@ public class MainActivity extends AppCompatActivity {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // brings the images to the front
+        final ImageButton rainbowfrostingbutton = (ImageButton) findViewById(R.id.coloredfrosting);
+        rainbowfrostingbutton.bringToFront();
+
+        final ImageButton bluefrostingbutton = (ImageButton) findViewById(R.id.bluefrosting);
+        bluefrostingbutton.bringToFront();
+
+        final ImageButton yellowfrostingbutton = (ImageButton) findViewById(R.id.yellowfrosting);
+        yellowfrostingbutton.bringToFront();
+
         final ImageButton bluefrostingcaketier2 = (ImageButton) findViewById(R.id.bluefrostingcaketier2);
         bluefrostingcaketier2.bringToFront();
 
@@ -197,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageButton bluecandletier1 = (ImageButton) findViewById(R.id.bluecandletier2);
         bluecandletier1.bringToFront();
+
+        wrong.bringToFront();
 
 
 
@@ -353,14 +363,8 @@ public class MainActivity extends AppCompatActivity {
 
                       ImageButton wrong = (ImageButton) findViewById(R.id.wrong);
                       wrong.setVisibility(View.VISIBLE);
-                   //   wrong.animate().alpha(0f).setDuration(3000);
 
-
-                      //  wrong.animate().
                   }
-
-
-
 
 
               }
@@ -383,10 +387,13 @@ public class MainActivity extends AppCompatActivity {
                     ImageButton yellowfrosting = (ImageButton) findViewById(R.id.yellowfrosting);
                     ImageButton bluefrosting = (ImageButton) findViewById(R.id.bluefrosting);
                     coloredfrosting.setVisibility(View.VISIBLE);
+                    final Animation animShake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
+                    coloredfrosting.startAnimation(animShake);
                     yellowfrosting.setVisibility(View.VISIBLE);
+                    yellowfrosting.startAnimation(animShake);
                     bluefrosting.setVisibility(View.VISIBLE);
+                    bluefrosting.startAnimation(animShake);
                     frostingbtncount++;
-
                 }
 
                 else {
@@ -430,11 +437,19 @@ public class MainActivity extends AppCompatActivity {
                     ImageButton heartsprinkles = (ImageButton) findViewById(R.id.heartsprinkles);
                     ImageButton roundsprinkles = (ImageButton) findViewById(R.id.roundsprinkles);
                     ImageButton blacksprinkles = (ImageButton) findViewById(R.id.blacksprinkles);
+                    final Animation animShake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
+
+
                     greensprinkles.setVisibility(View.VISIBLE);
+                    greensprinkles.startAnimation(animShake);
                     redsprinkles.setVisibility(View.VISIBLE);
+                    redsprinkles.startAnimation(animShake);
                     heartsprinkles.setVisibility(View.VISIBLE);
+                    heartsprinkles.startAnimation(animShake);
                     roundsprinkles.setVisibility(View.VISIBLE);
+                    roundsprinkles.startAnimation(animShake);
                     blacksprinkles.setVisibility(View.VISIBLE);
+                    blacksprinkles.startAnimation(animShake);
                     sprinklesbtncount++;
                 }
 
@@ -564,6 +579,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView squarecakeLabel = (TextView) findViewById(R.id.squarecakelabel);
                 TextView heartcakelabel = (TextView) findViewById(R.id.heartlabel);
 
+
                 squarecakebutton.setVisibility(View.INVISIBLE);
                 heartcakebutton.setVisibility(View.INVISIBLE);
                 roundcakebutton.setVisibility(View.INVISIBLE);
@@ -577,9 +593,13 @@ public class MainActivity extends AppCompatActivity {
                     ImageButton bluecandleoption = (ImageButton) findViewById(R.id.bluecandleoption);
                     ImageButton purplecandleoption = (ImageButton) findViewById(R.id.purplecandleoption);
 
+                    final Animation animShake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
                    pinkcandleoption.setVisibility(View.VISIBLE);
+                   pinkcandleoption.startAnimation(animShake);
                    bluecandleoption.setVisibility(View.VISIBLE);
+                   bluecandleoption.startAnimation(animShake);
                    purplecandleoption.setVisibility(View.VISIBLE);
+                   purplecandleoption.startAnimation(animShake);
                     candlebtncount++;
                 }
 

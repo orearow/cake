@@ -403,8 +403,8 @@
 
     <ImageButton
         android:id="@+id/heartcake"
-        android:layout_width="352dp"
-        android:layout_height="174dp"
+        android:layout_width="308dp"
+        android:layout_height="172dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -412,15 +412,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
+        android:tag="heartlow"
         android:tint="#ff77aa"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.735"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.693"
-       android:tag ="heartlow"
+        app:layout_constraintVertical_bias="0.689"
         app:srcCompat="@drawable/heartlayer" />
 
 
