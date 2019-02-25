@@ -499,7 +499,7 @@ public class MainActivity extends AppCompatActivity {
                 purplecandletier2.setVisibility(View.INVISIBLE);
                 bluecandletier2.setVisibility(View.INVISIBLE);
 
-                purplecandletier1.setVisibility(View.INVISIBLE);
+                pinkcandletier1.setVisibility(View.INVISIBLE);
                 purplecandletier1.setVisibility(View.INVISIBLE);
                 bluecandletier1.setVisibility(View.INVISIBLE);
 
